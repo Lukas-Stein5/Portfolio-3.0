@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio website for Your Name — projects, about, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7dd3fc; /* cyan */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px;
+    }
+    .container{max-width:1100px;margin:0 auto}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+    @media (max-width:880px){.hero{grid-template-columns:1fr;}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+    .card{background:linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(3,7,18,0.6);}
+    h1{margin:0;font-size:clamp(28px,3.4vw,40px)}
+    .sub{color:var(--muted);margin-top:8px}
+    .cta{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#05202b;border:none}
+
+    /* Stats */
+    .stats{display:flex;gap:12px;margin-top:18px}
+    .stat{background:var(--glass);padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:700}
+
+    /* Projects */
+    .section-title{margin:24px 0 12px;color:var(--muted);font-weight:700}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:920px){.projects{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.projects{grid-template-columns:1fr}}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:8px 0}
+    .project p{margin:0;color:var(--muted);font-size:0.95rem}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:rgba(125,211,252,0.08);padding:6px 8px;border-radius:8px;font-weight:600;font-size:0.85rem;color:var(--accent)}
+
+    /* About + contact */
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    @media (max-width:880px){.two-col{grid-template-columns:1fr}}
+    footer{margin-top:30px;color:var(--muted);font-size:0.95rem}
+
+    /* small utilities */
+    .center{display:flex;align-items:center;justify-content:center}
+    a.inline{color:var(--accent);text-decoration:none;font-weight:700}
+
+    /* simple responsiveness for images */
+    img{max-width:100%;border-radius:10px}
+
+    /* small form */
+    .input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:110px}
+
+    /* project preview image placeholder */
+    .placeholder{height:160px;background:linear-gradient(90deg,#072033,#041022);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">YS</div>
+        <div>
+          <div style="font-weight:800">Your Name</div>
+          <div style="font-size:0.9rem;color:var(--muted)">Engineering student • Programmer • Designer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Hi — I'm Your Name.<br><span style="color:var(--accent)">I design & build engineering projects.</span></h1>
+        <div class="sub">Student in mechanical / aerospace engineering. I build prototypes, write C++/Python, and design with CAD. Below are selected projects & links.</div>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See projects</a>
+          <a class="btn" href="/resume.pdf" target="_blank">Resume (PDF)</a>
+        </div>
+        <div class="stats">
+          <div class="stat">3+ major projects</div>
+          <div class="stat">Internship: HVAC</div>
+          <div class="stat">Swim coach & leader</div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card center" style="flex-direction:column;gap:12px">
+          <img src="https://via.placeholder.com/300x180" alt="project" style="border-radius:10px">
+          <div style="text-align:left;width:100%">
+            <h3 style="margin:6px 0">Featured project</h3>
+            <div class="sub">A short 2-line summary of a standout project — what you built, tools used, and measurable result.</div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="#">Case study</a>
+              <a class="btn" href="#">Code</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">Selected projects</div>
+      <div class="projects">
+        <article class="project">
+          <div class="placeholder">Project image</div>
+          <h3>Project Title — Robotic Arm</h3>
+          <p>Short summary. Tools: C++, Arduino, Fusion360. Built a 3-DOF arm that performs X with Y accuracy.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">CAD</span><span class="tag">Controls</span></div>
+        </article>
+
+        <article class="project">
+          <div class="placeholder">Project image</div>
+          <h3>Project Title — CFD Simulation</h3>
+          <p>Short summary. Tools: Python, OpenFOAM. Simulated airflow and optimized a geometry to reduce drag by 7%.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Simulation</span></div>
+        </article>
+
+        <article class="project">
+          <div class="placeholder">Project image</div>
+          <h3>Project Title — HVAC Prototype</h3>
+          <p>Short summary. Internship project where I helped design a compact HVAC subassembly using CAD and testing.</p>
+          <div class="tags"><span class="tag">CAD</span><span class="tag">Testing</span></div>
+        </article>
+
+        <!-- copy/paste project card to add more -->
+      </div>
+    </section>
+
+    <section class="two-col" id="about" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">About me</h2>
+        <p class="sub">I’m a student interested in mechanical and aerospace systems. I like turning sketches into CAD models and control code. I’m available for internships and collaborations.</p>
+
+        <h3 style="margin-top:18px">Experience highlights</h3>
+        <ul style="color:var(--muted)">
+          <li>Intern: Mechanical engineering (HVAC) — CAD & prototype testing</li>
+          <li>Swim instructor & club president — leadership and coaching</li>
+          <li>Personal projects in robotics, CFD, and product design</li>
+        </ul>
+
+        <h3 style="margin-top:18px">Skills</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Fusion360</span><span class="tag">OpenFOAM</span>
+        </div>
+      </div>
+
+      <aside class="card" id="contact">
+        <h3 style="margin:0 0 8px 0">Contact</h3>
+        <p class="sub">Want to work together? Email me or connect on GitHub / LinkedIn.</p>
+        <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+          <input class="input" name="Name" placeholder="Your name" />
+          <input class="input" name="Email" placeholder="Your email" style="margin-top:8px" />
+          <textarea name="Message" placeholder="Short message" style="margin-top:8px"></textarea>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="btn primary" type="submit">Send</button>
+            <a class="btn" href="https://github.com/yourusername" target="_blank">GitHub</a>
+          </div>
+        </form>
+        <div style="margin-top:12px;color:var(--muted);font-size:0.9rem">
+          Or email: <a href="mailto:youremail@example.com" class="inline">youremail@example.com</a>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="center" style="margin-top:28px">
+      <div style="text-align:center;color:var(--muted)">© Your Name • <a href="#" class="inline">Resume</a> • <a href="#projects" class="inline">Projects</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // small nicety: smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
