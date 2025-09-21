@@ -84,7 +84,17 @@
 
     /* project preview image placeholder */
     .placeholder{height:160px;background:linear-gradient(90deg,#072033,#041022);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+  
+    .project-date {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 6px 0;
+      font-style: italic;
+    }
+  
   </style>
+
+  
 </head>
 <body>
   <div class="container">
@@ -102,6 +112,8 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+
+
 
     <section class="hero">
       <div class="card">
@@ -153,16 +165,19 @@
         </article>
 
         <article class="project">
-          <div class="placeholder">Project image</div>
+          <img src="images/IMG_5123.jpg" alt="CFD Simulation" class="project-image">
           <h3>Project Title — CFD Simulation</h3>
-          <p>Short summary. Tools: Python, OpenFOAM. Simulated airflow and optimized a geometry to reduce drag by 7%.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Simulation</span></div>
+          <p>I got a new surfboard, and needed a place to put it. Installed some surfboard holders in my room.</p>
+          <div class="project-date">Completed: January 2025</div>
+          <div class="tags">
+          <span class="tag">House-Work</span><span class="tag">Hand-Tools</span><span class="tag">Practical</span></div>
         </article>
 
         <article class="project">
           <img src="images/IMG_4404.jpg" alt="Fishing Rod PVC Holders" class="project-image">
           <h3>Project Title — Fishing Rod PVC Holders</h3>
           <p>Needed something to keep fishing rods out of the water on the beach, using PVC and tools was the quickest and cheapest way.</p>
+          <div class="project-date">Completed: September 2024</div>
           <div class="tags"><span class="tag">Hand-Tools</span><span class="tag">Practical</span></div>
         </article>
 
@@ -201,7 +216,7 @@
           </div>
         </form>
         <div style="margin-top:12px;color:var(--muted);font-size:0.9rem">
-          Or email: <a href="mailto:youremail@example.com" class="inline">youremail@example.com</a>
+          Or email: <a href="stein.lukas16@gmail.com" class="inline">stein.lukas16@gmail.com</a>
         </div>
       </aside>
     </section>
