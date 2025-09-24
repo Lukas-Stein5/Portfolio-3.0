@@ -30,23 +30,50 @@
       line-height:1.45;
       padding:32px 20px;
     }
-    .container{max-width:1100px;margin:0 auto}
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding: 0 20px; /* Add horizontal padding */
+    }
 
     /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:28px;
+      padding: 0 20px; /* Add horizontal padding */
+    }
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
     nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
     nav a:hover{color:var(--accent)}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero{
+      min-height: 100vh; /* Make hero section full screen */
+      display:flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items:center;
+      justify-content:center;
+      text-align: center; /* Center text */
+      padding: 0 20px; /* Add horizontal padding for content */
+      margin-left: -20px; /* Offset body padding */
+      margin-right: -20px; /* Offset body padding */
+    }
     @media (max-width:880px){.hero{grid-template-columns:1fr;}
       header{flex-direction:column;align-items:flex-start;gap:12px}
     }
     .card{background:linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(3,7,18,0.6);}
-    h1{margin:0;font-size:clamp(28px,3.4vw,40px)}
-    .sub{color:var(--muted);margin-top:8px}
+    h1{
+      margin:0;
+      font-size:clamp(36px, 5vw, 60px); /* Larger font size */
+    }
+    .sub{
+      color:var(--muted);
+      margin-top:8px;
+      font-size: clamp(18px, 2.5vw, 24px); /* Larger font size */
+    }
     .cta{display:flex;gap:12px;margin-top:18px}
     .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:700}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#05202b;border:none}
@@ -84,16 +111,15 @@
 
     /* project preview image placeholder */
     .placeholder{height:160px;background:linear-gradient(90deg,#072033,#041022);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
-  
+ 
     .project-date {
       font-size: 0.85rem;
       color: var(--muted);
       margin: 6px 0;
       font-style: italic;
     }
-  
+ 
   </style>
-
   
 </head>
 <body>
