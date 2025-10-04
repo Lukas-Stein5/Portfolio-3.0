@@ -54,30 +54,24 @@
 
     /* Hero */
     .hero{
-      min-height: 80vh; /* Make hero section full screen */
-      display:flex;
-      flex-direction: column; /* Stack items vertically */
-      align-items:center;
-      justify-content:center;
-      text-align: center; /* Center text */
-      padding: 0 10px; /* Add horizontal padding for content */
-      margin-left: -10px; /* Offset body padding */
-      margin-right: -10px; /* Offset body padding */
+      background: linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));
+      padding: 48px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 30px rgba(3,7,18,0.6);
+
+      width: 100%;
+      max-width: 1000px; /* visually appealing sweet spot */
+      margin: 0 auto;
+      text-align: center;
     }
     @media (max-width:880px){.hero{grid-template-columns:1fr;}
       header{flex-direction:column;align-items:flex-start;gap:12px}
     }
     .card {
       background: linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));
-      padding: 48px; /* more breathing room for a "hero" look */
+      padding: 28px;
       border-radius: var(--radius);
       box-shadow: 0 6px 30px rgba(3,7,18,0.6);
-
-      /* Widen + center */
-      width: 100%;
-      max-width: 1000px; /* balanced width */
-      margin: 0 auto;
-      text-align: center;
     }
     h1{
       margin:0;
