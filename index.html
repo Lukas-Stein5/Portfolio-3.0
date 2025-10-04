@@ -38,11 +38,14 @@
 
     /* Header */
     header{
+      width: 100%; /* Stretch full width */
       display:flex;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:28px;
-      padding: 0 20px; /* Add horizontal padding */
+      padding: 0 40px; /* More breathing room */
+      margin: 0 auto 28px auto; /* Center block + spacing below */
+      max-width: 1400px; /* Keep it from being *too* wide on huge monitors */
+      box-sizing: border-box;
     }
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
@@ -184,19 +187,57 @@
       <div class="section-title">Selected projects</div>
       <div class="projects">
         <article class="project">
-          <div class="placeholder">Project image</div>
-          <h3>Project Title — Robotic Arm</h3>
-          <p>Short summary. Tools: C++, Arduino, Fusion360. Built a 3-DOF arm that performs X with Y accuracy.</p>
-          <div class="tags"><span class="tag">C++</span><span class="tag">CAD</span><span class="tag">Controls</span></div>
+          <img src="images/IMG_7749.jpg" alt="Trout Plasma Cut Out" class="project-image">
+          <h3>Plasma Cut Out: Trout With Mountains</h3>
+          <p>Short summary. Tools: Fusion 360, Plasma Cutter. Downloaded an image off the internet and made it into a sketch on Fusion. Used CAM and uploaded to plasma cutter.</p>
+          <div class="project-date">Completed: September 2025</div>
+          <div class="tags">
+          <span class="tag">CAM</span><span class="tag">CAD</span><span class="tag">Plasma Cutter</span></div>
         </article>
 
         <article class="project">
-          <img src="images/IMG_5123.jpg" alt="CFD Simulation" class="project-image">
+          <img src="images/IMG_5123.jpg" alt="Surfboard Holders" class="project-image">
           <h3>Surfboard Holders</h3>
-          <p>I got a new surfboard, and needed a place to put it. Installed some surfboard holders in my room.</p>
+          <p>Got a new surfboard and needed a place to hang them up. Installed new surfboard holders in my room.</p>
           <div class="project-date">Completed: January 2025</div>
           <div class="tags">
-          <span class="tag">House-Work</span><span class="tag">Hand-Tools</span><span class="tag">Practical</span></div>
+          <span class="tag">Hand-Tools</span><span class="tag">Practical</span><span class="tag">House-Work</span></div>
+        </article>
+
+        <article class="project">
+          <img src="images/IMG_7753.jpg" alt="3D Print Crossbow" class="project-image">
+          <h3>3D Print Crossbow</h3>
+          <p>A more interactive 3D print that incorporates spring mechanics and string to launch objects.</p>
+          <div class="project-date">Completed: December 2024</div>
+          <div class="tags">
+          <span class="tag">3D Print</span></div>
+        </article>
+
+        <article class="project">
+          <img src="images/IMG_7754.jpg" alt="3D Print Video Game Knife with Synthetic Rope" class="project-image">
+          <h3>3D Print Video Game Knife with Synthetic Rope</h3>
+          <p>Created a 3D printed video game knife that is fastened with a synthetic rope. Fun small art piece that uses an element outside 3D printing. Synthetic Rope can be used to hang up the piece.</p>
+          <div class="project-date">Completed: December 2024</div>
+          <div class="tags">
+          <span class="tag">3D Print</span></div>
+        </article>
+
+        <article class="project">
+          <img src="images/IMG_7752.jpg" alt="Snake 3D Print" class="project-image">
+          <h3>Snake 3D Print</h3>
+          <p>After becoming more familiar with 3D printer, decided to do an intermediate print. Snake is articulated so that there is movement.</p>
+          <div class="project-date">Completed: November 2024</div>
+          <div class="tags">
+          <span class="tag">3D Print</span></div>
+        </article>
+
+        <article class="project">
+          <img src="images/IMG_7751.jpg" alt="Lucky Cat 3D Print" class="project-image">
+          <h3>Lucky Cat 3D Print</h3>
+          <p>First try on the 3D printer, used Creality template and transferred print data via USB. Quick mini cat desk art</p>
+          <div class="project-date">Completed: October 2024</div>
+          <div class="tags">
+          <span class="tag">3D Print</span></div>
         </article>
 
         <article class="project">
@@ -214,16 +255,9 @@
     <section class="two-col" id="about" style="margin-top:18px">
       <div class="card">
         <h2 style="margin-top:0">About me</h2>
-        <p class="sub">I’m a student interested in mechanical and aerospace systems. I like turning sketches into CAD models and control code. I’m available for internships and collaborations.</p>
+        <p class="sub">We're students interested in engineering. We are using this platform to log our growth in this field. Learning and applying skills such as CAD, CAM, Practical Housework, 3D Printing, Hand Tools, Machines, and more</p>
 
-        <h3 style="margin-top:18px">Experience highlights</h3>
-        <ul style="color:var(--muted)">
-          <li>Intern: Mechanical engineering (HVAC) — CAD & prototype testing</li>
-          <li>Swim instructor & club president — leadership and coaching</li>
-          <li>Personal projects in robotics, CFD, and product design</li>
-        </ul>
-
-        <h3 style="margin-top:18px">Skills</h3>
+        <h3 style="margin-top:8x">Skills</h3>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <span class="tag">C++</span><span class="tag">HTML</span><span class="tag">Fusion360</span><span class="tag">3D Printing</span>
         </div>
