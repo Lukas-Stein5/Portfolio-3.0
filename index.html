@@ -67,7 +67,18 @@
     @media (max-width:880px){.hero{grid-template-columns:1fr;}
       header{flex-direction:column;align-items:flex-start;gap:12px}
     }
-    .card{background:linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(3,7,18,0.6);}
+    .card {
+      background: linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));
+      padding: 48px; /* more breathing room for a "hero" look */
+      border-radius: var(--radius);
+      box-shadow: 0 6px 30px rgba(3,7,18,0.6);
+
+      /* Widen + center */
+      width: 100%;
+      max-width: 1000px; /* balanced width */
+      margin: 0 auto;
+      text-align: center;
+    }
     h1{
       margin:0;
       font-size:clamp(30px, 5vw, 60px); /* Larger font size */
@@ -255,7 +266,7 @@
     <section class="two-col" id="about" style="margin-top:18px">
       <div class="card">
         <h2 style="margin-top:0">About me</h2>
-        <p class="sub">We're students interested in engineering. We are using this platform to log our growth in this field. Learning and applying skills such as CAD, CAM, Practical Housework, 3D Printing, Hand Tools, Machines, and more</p>
+        <p class="sub">We're brothers and students interested in engineering, so we are using this platform to log our growth in this field. Learning and applying skills such as CAD, CAM, Practical Housework, 3D Printing, Hand Tools, Machines, and more</p>
 
         <h3 style="margin-top:8x">Skills</h3>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
