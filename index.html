@@ -3,136 +3,390 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lukas and Justin Stein's — Portfolio</title>
+  <title>Lukas and Justin Stein — Portfolio</title>
   <meta name="description" content="Portfolio website for Lukas and Justin — projects, about, and contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724; /* deep navy */
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent:#7dd3fc; /* cyan */
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
+    :root {
+      --bg: #0a192f;
+      --card-bg: #112240;
+      --text-light: #ccd6f6;
+      --text-muted: #8892b0;
+      --accent: #64ffda;
+      --accent-dark: rgba(100, 255, 218, 0.1);
+      --shadow: rgba(2, 12, 27, 0.7);
+      --radius: 8px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       color-scheme: dark;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:32px 20px;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 0 20px; /* Add horizontal padding */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-light);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      padding: 32px 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     /* Header */
-    header{
-      width: 100%; /* Stretch full width */
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 0 40px; /* More breathing room */
-      margin: 0 auto 28px auto; /* Center block + spacing below */
-      max-width: 1400px; /* Keep it from being *too* wide on huge monitors */
-      box-sizing: border-box;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
     }
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:var(--accent)}
 
-    /* Hero */
-    .hero{
-      background: linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));
-      padding: 28px;
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--bg);
+      border: 2px solid var(--accent);
+    }
+    
+    .brand .name {
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .brand .title {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    nav {
+        display: flex;
+        gap: 24px;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 0;
+      text-align: left;
+    }
+    
+    h1 {
+      font-size: clamp(40px, 8vw, 70px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    
+    h1 .accent {
+      color: var(--accent);
+    }
+
+    .sub {
+      color: var(--text-muted);
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      max-width: 650px; /* Constrain line length for readability */
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
       border-radius: var(--radius);
-      box-shadow: 0 6px 30px rgba(3,7,18,0.6);
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    @media (max-width:880px){.hero{grid-template-columns:1fr;}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
+
+    .btn:hover {
+      background-color: var(--accent-dark);
     }
-    .card {
-      background: linear-gradient(180deg,var(--card),rgba(11,18,32,0.6));
-      padding: 28px;
+    
+    .stats-container {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .stat {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
       border-radius: var(--radius);
-      box-shadow: 0 6px 30px rgba(3,7,18,0.6);
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.9rem;
     }
-    h1{
-      margin:0;
-      font-size:clamp(30px, 5vw, 60px); /* Larger font size */
+    
+    .stat-label {
+        color: var(--text-light);
+        font-weight: 600;
+        font-size: 0.95rem;
     }
-    .sub{
-      color:var(--muted);
-      margin-top:8px;
-      font-size: clamp(18px, 2.5vw, 24px); /* Larger font size */
+
+    /* Section Styles */
+    section {
+        margin-top: 80px;
     }
-    .cta{display:flex;gap:12px;margin-top:18px}
-    .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-weight:700}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#05202b;border:none}
 
-    /* Stats */
-    .stats{display:flex;gap:12px;margin-top:18px}
-    .stat{background:var(--glass);padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:700}
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section-title::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 200px;
+        background-color: var(--text-muted);
+        opacity: 0.3;
+    }
 
-    /* Projects */
-    .section-title{margin:24px 0 12px;color:var(--muted);font-weight:700}
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:920px){.projects{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:560px){.projects{grid-template-columns:1fr}}
-    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
-    .project h3{margin:8px 0}
-    .project p{margin:0;color:var(--muted);font-size:0.95rem}
-    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-    .tag{background:rgba(125,211,252,0.08);padding:6px 8px;border-radius:8px;font-weight:600;font-size:0.85rem;color:var(--accent)}
 
-    /* About + contact */
-    .two-col{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    @media (max-width:880px){.two-col{grid-template-columns:1fr}}
-    footer{margin-top:30px;color:var(--muted);font-size:0.95rem}
+    /* Projects Grid */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
 
-    /* small utilities */
-    .center{display:flex;align-items:center;justify-content:center}
-    a.inline{color:var(--accent);text-decoration:none;font-weight:700}
+    .project {
+      background-color: var(--card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px -15px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-    /* simple responsiveness for images */
-    img{max-width:100%;border-radius:10px}
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -15px var(--shadow);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: var(--radius);
+        margin-bottom: 16px;
+    }
 
-    /* small form */
-    .input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    textarea{min-height:110px}
+    .project h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      color: var(--text-light);
+    }
 
-    /* project preview image placeholder */
-    .placeholder{height:160px;background:linear-gradient(90deg,#072033,#041022);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
- 
+    .project p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+    
     .project-date {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin: 6px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 12px 0;
       font-style: italic;
     }
- 
+
+    .tags {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--accent-dark);
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* About + Contact Section */
+    .two-col {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    .card {
+        background-color: var(--card-bg);
+        padding: 24px;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px -15px var(--shadow);
+    }
+
+    .card h2, .card h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+    
+    .card .sub {
+        max-width: 100%;
+    }
+
+    /* Form Styles */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--bg);
+      color: var(--text-light);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .input:focus, textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 12px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding: 20px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    a.inline {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    a.inline::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+    
+    a.inline:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 920px) {
+        .two-col {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      
+      .section-title::after {
+          width: 100px;
+      }
+    }
+    
   </style>
-  
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">LJP</div>
+        <div class="logo">LS</div>
         <div>
-          <div style="font-weight:800">Lukas and Justin Stein</div>
-          <div style="font-size:0.9rem;color:var(--muted)">Engineering student • Programmer • Designer</div>
+          <div class="name">Lukas and Justin Stein</div>
+          <div class="title">Aspiring Engineers • Programmers • Designers</div>
         </div>
       </div>
       <nav>
@@ -142,162 +396,162 @@
       </nav>
     </header>
 
-
-
-    <section class="hero">
-      <div class="card">
-        <h1>Hi! We're Lukas and Justin<br><span style="color:var(--accent)">We design & build personal engineering projects.</span></h1>
-        <div class="sub">High School students aspiring to pursue engineering in higher levels of education. We CAD design using Fusion 360 and write C++/Java/html. Below are selected projects & links.</div>
-        <div class="cta">
-          <a class="btn primary" href="#projects">See projects</a>
-          <a class="btn" href="/resume.pdf" target="_blank">Resume (PDF)</a>
-        </div>
-        <div class="stats">
-        <div class="stat">Lukas:</div>
-        <div class="stat">3+ major projects</div>
-        <div class="stat">Paid Internship: HVAC</div>
-        <div class="stat">Swimmer</div>
-      </div>
-
-      <div class="stats">
-      <div class="stat">Justin:</div>
-      <div class="stat">3+ major projects</div>
-      <div class="stat">Blank</div>
-      <div class="stat">Swimmer</div>
-    </div>
-        </div>
-      </div>
-
-      <aside>
-        <div class="card center" style="flex-direction:column;gap:12px">
-          <img src="https://via.placeholder.com/300x180" alt="project" style="border-radius:10px">
-          <div style="text-align:left;width:100%">
-            <h3 style="margin:6px 0">Featured project</h3>
-            <div class="sub">A short 2-line summary of a standout project — what you built, tools used, and measurable result.</div>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <a class="btn" href="#">Case study</a>
-              <a class="btn" href="#">Code</a>
+    <main>
+        <section class="hero">
+          <h1>We design & build personal<br><span class="accent">engineering projects.</span></h1>
+          <div class="sub">High school students passionate about CAD design, programming, and bringing ideas to life. Below are our selected projects and skills.</div>
+          <div class="cta-buttons">
+            <a class="btn" href="#projects">View Our Work</a>
+            <a class="btn" href="/resume.pdf" target="_blank">View Resume (PDF)</a>
+          </div>
+          
+          <div class="stats-container">
+            <div class="stats">
+                <div class="stat stat-label">Lukas:</div>
+                <div class="stat">3+ Major Projects</div>
+                <div class="stat">HVAC Internship</div>
+                <div class="stat">Swimmer</div>
+            </div>
+            <div class="stats">
+                <div class="stat stat-label">Justin:</div>
+                <div class="stat">3+ Major Projects</div>
+                <div class="stat">Future Intern</div>
+                <div class="stat">Swimmer</div>
             </div>
           </div>
-        </div>
-      </aside>
-    </section>
+        </section>
 
-    <section id="projects">
-      <div class="section-title">Selected projects</div>
-      <div class="projects">
-        <article class="project">
-          <img src="images/IMG_7749.jpg" alt="Trout Plasma Cut Out" class="project-image">
-          <h3>Plasma Cut Out: Trout With Mountains</h3>
-          <p>Tools: Fusion 360, Plasma Cutter. Downloaded an image off the internet and made it into a sketch on Fusion. Used CAM and uploaded to plasma cutter.</p>
-          <div class="project-date">Completed: September 2025</div>
-          <div class="tags">
-          <span class="tag">CAM</span><span class="tag">CAD</span><span class="tag">Plasma Cutter</span></div>
-        </article>
+        <section id="projects">
+          <div class="section-title">Selected Projects</div>
+          <div class="projects">
+            <article class="project">
+              <img src="images/IMG_7749.jpg" alt="Trout Plasma Cut Out" class="project-image">
+              <div>
+                <h3>Plasma Cut Out: Trout</h3>
+                <p>Designed a vector sketch from an image using Fusion 360 and executed the design with a plasma cutter via CAM programming.</p>
+                <div class="project-date">Completed: September 2025</div>
+                <div class="tags">
+                  <span class="tag">CAD</span>
+                  <span class="tag">CAM</span>
+                  <span class="tag">Plasma Cutter</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="project">
-          <img src="images/IMG_5123.jpg" alt="Surfboard Holders" class="project-image">
-          <h3>Surfboard Holders</h3>
-          <p>Got a new surfboard and needed a place to hang them up. Installed new surfboard holders in my room.</p>
-          <div class="project-date">Completed: January 2025</div>
-          <div class="tags">
-          <span class="tag">Hand-Tools</span><span class="tag">Practical</span><span class="tag">House-Work</span></div>
-        </article>
+            <article class="project">
+              <img src="images/IMG_5123.jpg" alt="Surfboard Holders" class="project-image">
+              <div>
+                <h3>Surfboard Holders</h3>
+                <p>A practical project to organize and display surfboards. Designed and installed custom wall-mounted holders using hand-tools.</p>
+                <div class="project-date">Completed: January 2025</div>
+                <div class="tags">
+                  <span class="tag">Hand-Tools</span>
+                  <span class="tag">Practical</span>
+                  <span class="tag">Woodworking</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="project">
-          <img src="images/IMG_7753.jpg" alt="3D Print Crossbow" class="project-image">
-          <h3>3D Print Crossbow</h3>
-          <p>A more interactive 3D print that incorporates spring mechanics and string to launch objects.</p>
-          <div class="project-date">Completed: December 2024</div>
-          <div class="tags">
-          <span class="tag">3D Print</span></div>
-        </article>
+            <article class="project">
+              <img src="images/IMG_7753.jpg" alt="3D Print Crossbow" class="project-image">
+              <div>
+                <h3>3D Printed Crossbow</h3>
+                <p>An interactive 3D print that incorporates spring mechanics and string tension to create a functional, projectile-launching model.</p>
+                <div class="project-date">Completed: December 2024</div>
+                <div class="tags">
+                  <span class="tag">3D Printing</span>
+                  <span class="tag">Mechanics</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="project">
-          <img src="images/IMG_7754.jpg" alt="3D Print Video Game Knife with Synthetic Rope" class="project-image">
-          <h3>3D Print Video Game Knife with Synthetic Rope</h3>
-          <p>Created a 3D printed video game knife that is fastened with a synthetic rope. Fun small art piece that uses an element outside 3D printing. Synthetic Rope can be used to hang up the piece.</p>
-          <div class="project-date">Completed: December 2024</div>
-          <div class="tags">
-          <span class="tag">3D Print</span></div>
-        </article>
+            <article class="project">
+              <img src="images/IMG_7754.jpg" alt="3D Print Video Game Knife" class="project-image">
+               <div>
+                <h3>Video Game Knife Replica</h3>
+                <p>Created a 3D printed replica of a video game knife, featuring a synthetic rope handle wrap for an authentic look and feel.</p>
+                <div class="project-date">Completed: December 2024</div>
+                <div class="tags">
+                  <span class="tag">3D Printing</span>
+                  <span class="tag">Prototyping</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="project">
-          <img src="images/IMG_7752.jpg" alt="Snake 3D Print" class="project-image">
-          <h3>Snake 3D Print</h3>
-          <p>After becoming more familiar with 3D printer, decided to do an intermediate print. Snake is articulated so that there is movement.</p>
-          <div class="project-date">Completed: November 2024</div>
-          <div class="tags">
-          <span class="tag">3D Print</span></div>
-        </article>
+            <article class="project">
+              <img src="images/IMG_7752.jpg" alt="Snake 3D Print" class="project-image">
+              <div>
+                <h3>Articulated Snake 3D Print</h3>
+                <p>An intermediate, multi-part 3D print designed with articulated joints to allow for realistic, snake-like movement.</p>
+                <div class="project-date">Completed: November 2024</div>
+                <div class="tags">
+                  <span class="tag">3D Printing</span>
+                  <span class="tag">Articulation</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="project">
-          <img src="images/IMG_7751.jpg" alt="Lucky Cat 3D Print" class="project-image">
-          <h3>Lucky Cat 3D Print</h3>
-          <p>First try on the 3D printer, used Creality template and transferred print data via USB. Quick mini cat desk art</p>
-          <div class="project-date">Completed: October 2024</div>
-          <div class="tags">
-          <span class="tag">3D Print</span></div>
-        </article>
-
-        <article class="project">
-          <img src="images/IMG_4404.jpg" alt="Fishing Rod PVC Holders" class="project-image">
-          <h3>Fishing Rod PVC Holders</h3>
-          <p>Needed something to keep fishing rods out of the water on the beach, using PVC and tools was the quickest and cheapest way.</p>
-          <div class="project-date">Completed: September 2024</div>
-          <div class="tags"><span class="tag">Hand-Tools</span><span class="tag">Practical</span></div>
-        </article>
-
-        <!-- copy/paste project card to add more -->
-      </div>
-    </section>
-
-    <section class="two-col" id="about" style="margin-top:18px">
-      <div class="card">
-        <h2 style="margin-top:0">About me</h2>
-        <p class="sub">We're brothers and students interested in engineering, so we are using this platform to log our growth in this field. Learning and applying skills such as CAD, CAM, Practical Housework, 3D Printing, Hand Tools, Machines, and more</p>
-
-        <h3 style="margin-top:8x">Skills</h3>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span class="tag">C++</span><span class="tag">HTML</span><span class="tag">Fusion360</span><span class="tag">3D Printing</span>
-        </div>
-      </div>
-
-      <aside class="card" id="contact">
-        <h3 style="margin:0 0 8px 0">Contact</h3>
-        <p class="sub">Want to work together? Email me or connect on GitHub / LinkedIn.</p>
-        <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
-          <input class="input" name="Name" placeholder="Your name" />
-          <input class="input" name="Email" placeholder="Your email" style="margin-top:8px" />
-          <textarea name="Message" placeholder="Short message" style="margin-top:8px"></textarea>
-          <div style="margin-top:10px;display:flex;gap:8px">
-            <button class="btn primary" type="submit">Send</button>
-            <a class="btn" href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <article class="project">
+              <img src="images/IMG_7751.jpg" alt="Lucky Cat 3D Print" class="project-image">
+              <div>
+                <h3>Lucky Cat 3D Print</h3>
+                <p>Our first project using a Creality 3D printer. A quick and simple print to learn the basics of slicing and machine operation.</p>
+                <div class="project-date">Completed: October 2024</div>
+                <div class="tags">
+                  <span class="tag">3D Printing</span>
+                  <span class="tag">Beginner</span>
+                </div>
+              </div>
+            </article>
+            
+             <article class="project">
+              <img src="images/IMG_4404.jpg" alt="Fishing Rod PVC Holders" class="project-image">
+              <div>
+                <h3>PVC Fishing Rod Holders</h3>
+                <p>A cheap and effective solution to keep fishing rods out of the sand and water at the beach, constructed from PVC pipes.</p>
+                <div class="project-date">Completed: September 2024</div>
+                <div class="tags">
+                    <span class="tag">Hand-Tools</span>
+                    <span class="tag">Practical</span>
+                </div>
+              </div>
+            </article>
           </div>
-        </form>
-        <div style="margin-top:12px;color:var(--muted);font-size:0.9rem">
-          Or email: <a href="stein.lukas16@gmail.com" class="inline">stein.lukas16@gmail.com</a>
-        </div>
-      </aside>
-    </section>
+        </section>
 
-    <footer class="center" style="margin-top:28px">
-      <div style="text-align:center;color:var(--muted)">©Lukas Stein - Founded October 2024 • <a href="#" class="inline">Resume</a> • <a href="#projects" class="inline">Projects</a></div>
+        <section class="two-col" id="about">
+          <div class="card">
+            <h2>About Us</h2>
+            <p class="sub">We're brothers and students passionate about engineering, using this platform to document our growth and journey in the field. We are constantly learning and applying skills in CAD, CAM, 3D Printing, programming, and hands-on fabrication.</p>
+
+            <h3 style="margin-top:20px">Core Skills</h3>
+            <div class="tags">
+              <span class="tag">C++</span>
+              <span class="tag">HTML & CSS</span>
+              <span class="tag">Fusion 360</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">CAM Programming</span>
+            </div>
+          </div>
+
+          <aside class="card" id="contact">
+            <h3>Get In Touch</h3>
+            <p class="sub">Want to collaborate or have a question? Feel free to reach out.</p>
+            <form action="mailto:stein.lukas16@gmail.com" method="post" enctype="text/plain">
+              <input class="input" name="Name" placeholder="Your name" required />
+              <input class="input" type="email" name="Email" placeholder="Your email" required />
+              <textarea name="Message" placeholder="Your message" required></textarea>
+              <div class="form-buttons">
+                <button class="btn" type="submit">Send Message</button>
+              </div>
+            </form>
+          </aside>
+        </section>
+    </main>
+
+    <footer>
+      <div>© 2024 Lukas & Justin Stein • Built with passion</div>
     </footer>
   </div>
-
-  <script>
-    // small nicety: smooth scroll for in-page links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      })
-    })
-  </script>
 </body>
 </html>
